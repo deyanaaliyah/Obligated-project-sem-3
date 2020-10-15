@@ -6,43 +6,36 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
 </head>
 <body>
-
 <div class="container" style="text-transform: lowercase">
-    <h1>Welcome</h1><br>
-    <h3>This website reads data of albums and artist from a H2 database</h3>
+    <h3>Genres written in the database</h3>
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
-            <th>Album</th>
-            <th>Artist</th>
-            <th>Genre</th>
+            <th>Categories</th>
             <th></th>
         </tr>
-        <tr th:each="a : ${albumsToReturn}">
-            <td th:text="${a.id}"></td>
-            <td th:text="${a.title}"></td>
-            <td th:text="${a.artistName}"></td>
-            <td th:text="${a.genreCategory}"></td>
+        <tr th:each="c : ${category}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.category}"></td>
             <td>
-                <a th:href="@{/edit/{id}(id=${a.id})}" class="btn btn-success btn-sm" role="button">Update</a>
-                <a th:href="@{/delete/{id}(id=${a.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
+                <a th:href="@{/genre/edit/{id}(id=${c.id})}" class="btn btn-success btn-sm" role="button">Update</a>
+                <a th:href="@{/genre/delete/{id}(id=${c.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
             </td>
         </tr>
     </table>
-    <a th:href="@{/add}">
-        <button class="btn btn-success">Create new album</button>
-    </a>
     <a href="/artists">
         <button class="btn btn-light">See all artists</button>
     </a>
     <a href="/genres">
         <button class="btn btn-light">See all genres</button>
     </a>
+    <a href="/">
+        <button class="btn btn-light">See all albums</button>
+    </a>
 </div>
 <br>
 
 </body>
-
 <footer style="text-transform: lowercase; float: right; text-align: right; padding: 12px;">
     <small>A website by Dejan Alija. <br>Designed in bootstrap. <br>Local MySQL database running through IntelliJ</small>
 </footer>

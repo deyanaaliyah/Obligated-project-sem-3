@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 @Controller
-public class HomeController {
+public class AlbumController {
 
     // Instantiates the album repository interface
     @Autowired

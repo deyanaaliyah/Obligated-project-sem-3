@@ -6,31 +6,25 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
 </head>
 <body>
-
 <div class="container" style="text-transform: lowercase">
-    <h1>Welcome</h1><br>
-    <h3>This website reads data of albums and artist from a H2 database</h3>
+    <h3>Artists written in the database</h3>
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
-            <th>Album</th>
-            <th>Artist</th>
-            <th>Genre</th>
+            <th>Name</th>
             <th></th>
         </tr>
-        <tr th:each="a : ${albumsToReturn}">
+        <tr th:each="a : ${artists}">
             <td th:text="${a.id}"></td>
-            <td th:text="${a.title}"></td>
-            <td th:text="${a.artistName}"></td>
-            <td th:text="${a.genreCategory}"></td>
+            <td th:text="${a.name}"></td>
             <td>
-                <a th:href="@{/edit/{id}(id=${a.id})}" class="btn btn-success btn-sm" role="button">Update</a>
-                <a th:href="@{/delete/{id}(id=${a.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
+                <a th:href="@{/artist/edit/{id}(id=${a.id})}" class="btn btn-success btn-sm" role="button">Update</a>
+                <a th:href="@{/artist/delete/{id}(id=${a.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
             </td>
         </tr>
     </table>
-    <a th:href="@{/add}">
-        <button class="btn btn-success">Create new album</button>
+    <a th:href="@{/artist/add}">
+        <button class="btn btn-success">Create new artist</button>
     </a>
     <a href="/artists">
         <button class="btn btn-light">See all artists</button>
@@ -38,11 +32,13 @@
     <a href="/genres">
         <button class="btn btn-light">See all genres</button>
     </a>
+    <a href="/">
+        <button class="btn btn-light">See all albums</button>
+    </a>
 </div>
 <br>
 
 </body>
-
 <footer style="text-transform: lowercase; float: right; text-align: right; padding: 12px;">
     <small>A website by Dejan Alija. <br>Designed in bootstrap. <br>Local MySQL database running through IntelliJ</small>
 </footer>
