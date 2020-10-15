@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="text-transform: lowercase">
     <h1>Welcome</h1><br>
     <h3>This website reads data of albums and artist from a H2 database</h3>
     <table class="table table-bordered">
@@ -24,13 +24,20 @@
             <td th:text="${a.artistName}"></td>
             <td th:text="${a.genreCategory}"></td>
             <td>
-                <a th:href="@{/album/edit/{id}(id=${a.id})}" class="btn btn-success btn-sm" role="button">Update</a>
-                <a th:href="@{/album/delete/{id}(id=${a.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
+                <a th:href="@{/edit/{id}(id=${a.id})}" class="btn btn-success btn-sm" role="button">Update</a>
+                <a th:href="@{/delete/{id}(id=${a.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
             </td>
         </tr>
     </table>
-    <a th:href="@{/create-album}"><button class="btn btn-success">Create new album</button></a>
+    <a th:href="@{/add}">
+        <button class="btn btn-success">Create new album</button>
+    </a>
 </div>
+<br>
 
 </body>
+
+<footer style="text-transform: lowercase; float: right; text-align: right; padding: 12px;">
+    <small>A website by Dejan Alija. <br>Designed in bootstrap. <br>Local MySQL database running through IntelliJ</small>
+</footer>
 </html>

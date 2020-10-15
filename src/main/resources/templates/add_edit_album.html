@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H2 Database</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container" style="text-transform: lowercase">
+    <h4>Create new album</h4><br>
+
+    <form action="#" th:action="@{/addEdit}" method="POST" th:object="${album}">
+        Title of album is...<br/>
+        <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="title..."/>
+        <br/>
+        What about the genre?<br/>
+        <input type="text" class="form-control" id="genre" th:field="*{genreCategory}"  placeholder="genre..."/>
+        <br/>
+        Omg... and the artist?<br/>
+        <input type="text" class="form-control" id="artistname" th:field="*{artistName}" placeholder="artist..."/>
+        <br/>
+        <input type="hidden" id="id" th:field="*{id}">
+        <br/>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-info">reset :/</button>
+        <br>
+    </form>
+
+</div>
+</body>
+
+<footer style="text-transform: lowercase; float: right; text-align: right; padding: 12px;">
+    <small>A website by Dejan Alija. <br>Designed in bootstrap. <br>Local MySQL database running through IntelliJ</small>
+</footer>
+
+</html>
