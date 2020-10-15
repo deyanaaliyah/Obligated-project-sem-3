@@ -26,6 +26,16 @@ public class Album {
     @ManyToOne
     private Genre genres;
 
+    // Constructor + default constructor
+    public Album() {
+    }
+    public Album(Long id, String title, String artistName, String genreCategory) {
+        this.id = id;
+        this.title = title;
+        this.artistName = artistName;
+        this.genreCategory = genreCategory;
+    }
+
     // Getters and setters
     public Long getId() {                                   return id; }
     public void setId(Long id) {                            this.id = id; }
