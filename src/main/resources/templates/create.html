@@ -5,21 +5,27 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>H2 Database</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
 </head>
 <body>
 
 <div class="container">
     <h4>Create new album</h4>
 
-    <form th:action="@{/create-album}" method="POST" enctype="UTF8">
-        <label for="title"></label>
-        <input type="text" id="title" placeholder="Enter title">
-        <label for="artist"></label>
-        <input type="text" id="artist" placeholder="Enter artist">
-        <label for="genre"></label>
-        <input type="text" id="genre" placeholder="Enter genre">
+    <form action="/" th:action="@{/create-movie}" method="POST" th:object="${album}">
+        Title:<br/>
+        <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Title"/>
+        <br/>
+        Genres:<br/>
+        <input type="text" class="form-control" id="tags" th:field="*{genreCategory}"  placeholder="Genre"/>
+        <br/>
+        Artist:<br/>
+        <input type="text" class="form-control" id="language" th:field="*{artistName}" placeholder="Artist"/>
+        <br/>
 
-        <button type="submit" class="btn btn-success">Done!</button>
+        <input type="hidden" id="id" th:field="*{id}">
+        <br/>
+        <button type="submit" class="btn btn-info">Submit</button>
     </form>
 </div>
 

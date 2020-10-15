@@ -21,20 +21,24 @@ public class HomeController {
         //this.albumRepository = albumRepository;
     //}
 
-    // Reserves a customizable URL
+    // Reserves a customizable URL and body contains methods to be executed inside HTML
     @GetMapping("/")
     public String index(Model model){
+
         model.addAttribute("albumsToReturn", repository.findAll());
         return "index";
     }
 
     @GetMapping("/create-album")
-    public String create(){
-        // add method
+    public String create(Model model){
+
+        model.addAttribute("album", new Album());
         return "create";
     }
     @PostMapping("/create-album")
-    public String createAlbum(){
+    public String createAlbum(Album album){
+
+        repository.save(album);
         return "index";
     }
 }
