@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H2 Database</title>
+</head>
+<body>
+
+<div class="container">
+    <h4>Create new album</h4>
+
+    <form th:action="@{/create-album}" method="POST" enctype="UTF8">
+        <label for="title"></label>
+        <input type="text" id="title" placeholder="Enter title">
+        <label for="artist"></label>
+        <input type="text" id="artist" placeholder="Enter artist">
+        <label for="genre"></label>
+        <input type="text" id="genre" placeholder="Enter genre">
+
+        <button type="submit" class="btn btn-success">Done!</button>
+    </form>
+</div>
+
+</body>
+</html>

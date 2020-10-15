@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>H2 Database</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
 </head>
 <body>
 
 <div class="container">
-    <h1>Welcome</h1>
+    <h1>Welcome</h1><br>
     <h3>This website reads data of albums and artist from a H2 database</h3>
     <table class="table table-bordered">
-        <thead>
         <tr>
             <th>ID</th>
             <th>Album</th>
@@ -19,20 +18,18 @@
             <th>Genre</th>
             <th></th>
         </tr>
-        </thead>
-        <tbody>
-        <tr th:each="album : ${albums}">
-            <td th:text="${album.id}"></td>
-            <td th:text="${album.title}"></td>
-            <td th:text="${album.artist_name}"></td>
-            <td th:text="${album.genre_category}"></td>
+        <tr th:each="a : ${albumsToReturn}">
+            <td th:text="${a.id}"></td>
+            <td th:text="${a.title}"></td>
+            <td th:text="${a.artistName}"></td>
+            <td th:text="${a.genreCategory}"></td>
             <td>
-                <a th:href="@{/album/edit/{id}(id=${album.id})}" class="btn btn-success btn-sm" role="button">Update</a>
-                <a th:href="@{/album/delete/{id}(id=${album.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
+                <a th:href="@{/album/edit/{id}(id=${a.id})}" class="btn btn-success btn-sm" role="button">Update</a>
+                <a th:href="@{/album/delete/{id}(id=${a.id})}" class="btn btn-danger btn-sm" role="button">Delete</a>
             </td>
         </tr>
-        </tbody>
     </table>
+    <a href="/create-album"><button class="btn btn-success">Create new album</button></a>
 </div>
 
 </body>

@@ -2,24 +2,39 @@ package kea.sem3.demo.controller;
 
 import kea.sem3.demo.model.Album;
 import kea.sem3.demo.repository.IAlbumRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
 
+@Controller
 public class HomeController {
 
     // Instantiates the album repository interface
-    IAlbumRepository albumRepository;
-    public HomeController(IAlbumRepository albumRepository){
-        this.albumRepository = albumRepository;
-    }
+    @Autowired
+    private IAlbumRepository repository;
+    //IAlbumRepository albumRepository;
+    //public HomeController(IAlbumRepository albumRepository){
+        //this.albumRepository = albumRepository;
+    //}
 
     // Reserves a customizable URL
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("albums", albumRepository.readAll());
+        model.addAttribute("albumsToReturn", repository.findAll());
+        return "index";
+    }
 
+    @GetMapping("/create-album")
+    public String create(){
+        // add method
+        return "create";
+    }
+    @PostMapping("/create-album")
+    public String createAlbum(){
         return "index";
     }
 }

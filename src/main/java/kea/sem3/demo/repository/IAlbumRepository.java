@@ -6,7 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface IAlbumRepository {
-    public boolean create(Album album);
-    public List<Album> readAll();
+public interface IAlbumRepository extends CrudRepository<Album, Long> {
+
+    //public boolean create(Album album);
+    //public List<Album> readAll();
 }
