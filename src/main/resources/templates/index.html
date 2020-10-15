@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>H2 Database</title>
 </head>
 <body>
 
-<h1>lil bitch</h1>
+<h1>Welcome</h1>
+<h3>This website reads data of albums and artist from a H2 database</h3>
+<br>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Album</th>
+        <th>Artist</th>
+        <th>Genre</th>
+    </tr>
+    <tr th:each="a : ${albums}">
+        <th th:text="a.id"></th>
+        <th th:text="a.id"></th>
+        <th th:text="a.id"></th>
+        <th th:text="a.id"></th>
+    </tr>
+</table>
+<a href="/create-album">Create new Album</a>
 
 </body>
 </html>

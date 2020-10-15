@@ -5,12 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public class HomeController {
 
+    // Instantiates the album repository interface
     AlbumRepository albumRepository;
-    public HomeController(AlbumRepository albumRepository){        this.albumRepository = albumRepository; }
+    public HomeController(AlbumRepository albumRepository){
+        this.albumRepository = albumRepository;
+    }
 
+    // Reserves a customizable URL
     @GetMapping("/")
     public String index(){
 
-        return "/Users/deyanaaliyah/Desktop/softwarekonstruktion/idk/obligated-project/src/main/resources/templates/index.html";
+        return "index";
     }
 }

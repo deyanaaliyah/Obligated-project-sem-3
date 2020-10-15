@@ -18,11 +18,13 @@ public class Album {
     // This is the columns
     private String title;
     private String artistName;
+    private String genreCategory;
 
-    // This is the relation type
+    // This is the relation types
     @ManyToMany
     private Set<Artist> artists;
-
+    @ManyToOne
+    private Genre genres;
 
     // Getters and setters
     public Long getId() {                                   return id; }
@@ -33,4 +35,8 @@ public class Album {
     public void setArtistName(String artistName) {          this.artistName = artistName; }
     public Set<Artist> getArtists() {                       return artists; }
     public void setArtists(Set<Artist> artists) {           this.artists = artists; }
+    public String getGenreCategory() {                      return genreCategory; }
+    public void setGenreCategory(String genreCategory) {    this.genreCategory = genreCategory; }
+    public Genre getGenres() {                              return genres; }
+    public void setGenres(Genre genres) {                   this.genres = genres; }
 }
